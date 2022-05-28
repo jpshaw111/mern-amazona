@@ -5,6 +5,7 @@ import Product from "../components/Product";
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Helmet } from "react-helmet-async";
 const reducer = (state, action) => {
   switch(action.type) {
     case 'FETCH_REQUEST':
@@ -52,11 +53,14 @@ function HomeScreen() {
 
     }
     fetchProducts();
-    document.title = `Amazona`;
+    
   }, []);
   
     return(
         <div>
+          <Helmet>
+            <title>Amazona</title>
+          </Helmet>
             <h1>Feature Products</h1>
         <div className="products">
           {
